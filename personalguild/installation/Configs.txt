@@ -1,0 +1,39 @@
+LARAVEL BASIC CONFIGS
+A guide to config URL, Cache, Session, Database for Laravel
+
+1. Database
+    Step 1: Go to phpmyadmin, create a new database called "binet", character_charset is utf8mb4-general-ci
+    Step 2: On project, open config/database.php then modify the configs:
+        (this guide is for connections/mysql)
+        database = binet
+        username = root
+        password = (what users set, leave it blank by default)
+        charset = utf8mb4
+        collation = utf8mb4_general_ci
+    Step 3: Migration
+        Here are some example
+        php artisan make:migration create_users_table --create=users // create a table
+        php artisan make:migration add_votes_to_users_table --table=users // add a new column to table
+        php artisan migrate --force // force to migrate
+        php artisan migrate // migrate
+
+        Where:
+            create_users_table: action, what to do
+            --create or --table: indicate the name of the table
+
+    References: https://laravel.com/docs/5.5/database#configuration (Instructions and Basic commands)
+                https://laravel.com/docs/5.5/queries (Query Builder)
+                https://laravel.com/docs/5.5/migrations (Migration)
+2. URL
+    To config homepage url, users will not have to go to /sub-folder/public/index anymore.
+
+    Step 1: Copy "index.php" and ".htaccess" from folder public to the /project/sub-folder/
+    Step 2: Modify "index.php" as below:
+        require __DIR__.'/vendor/autoload.php';
+        $app = require_once __DIR__.'/bootstrap/app.php';
+    Step 3: Go to /config/app.php, modify as below
+            'debug' => env('APP_DEBUG', true),
+
+        (remove /../ after __DIR__)
+
+    References: https://www.youtube.com/watch?v=kr8WBgDAPfg&list=PLqEKeWbzk0aTloUonoi7J_D6QslCc9VXv&index=3

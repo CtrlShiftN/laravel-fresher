@@ -1,0 +1,23 @@
+BASIC LARAVEL INSTALLATION
+A simple guide to install Laravel
+
+Step 1: Create a new folder in xampp/htdocs then open it by command line (Choose it, then hold Shift + Right Click, choose open by command line)
+Step 2: If Composer is already installed, type the command:
+	composer create-project --prefer-dist laravel/laravel blog "5.5.*"
+	
+	Where: "blog" is a sub-folder name should be created
+		"5.5.*" is the version of Laravel
+Step 3: Try localhost/yourProjectName/Sub-FolderName/public
+Step 4: Migrate db
+	php artisan migrate
+	If error, 
+	     config the config/database.php
+	     config the .env to fit the database config
+Step 5: Generate application key
+	cd blog (sub-folder created before)
+	php artisan key:generate
+Step 6: Configs
+
+References:
+	https://laravel.com/docs/5.5 (Versions and Installation)
+	https://github.com/laravel/framework/issues/19522 (Step 4)
