@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Request;
 
 class MyController extends Controller
 {
@@ -15,5 +16,13 @@ class MyController extends Controller
 	public function testParams($param)
 	{
 		echo "This param is: " . $param;
+	}
+
+	// working with URL
+	public function getURL(Request $request){
+		return $request->path(); // return name of the route
+		// return $request->url(); // return the specific url
+		// return $request->is('admin/*'); // return true if url contains 'admin/'
+		// return $request->isMethod('post'); // return true if method is POST
 	}
 }

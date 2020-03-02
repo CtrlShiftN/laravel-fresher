@@ -61,3 +61,6 @@ Route::get('routeName','MyController@testAction');
 
 // send params to Controller
 Route::get('sendThisParam/{sendingParam}', 'MyController@testParams');
+
+// working with URL
+Route::get('myRequest','MyController@getURL');
