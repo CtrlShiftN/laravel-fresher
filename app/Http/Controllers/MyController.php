@@ -64,11 +64,23 @@ class MyController extends Controller
     {
         // check if file is exist
         if ($request->hasFile('filename')) {
+            // stream file
+            $file = $request->file('filename');
+            // get file name (basename + extension)
+            $fileName = $file->getClientOriginalName();
+            // get file size
+            $fileSize = $file->getClientSize();
+            // get file mime type
+            $fileMimeType = $file->getClientMimeType();
+            // get file extension
+            $fileExtension = $file->getClientOriginalExtension();
             // save file
-            $file = $request->file('filename')->move(
+            $file->move(
                 'img', // directory to save file (in the public folder)
                 'my file.jpg' // new name
             );
+            // check if upload success
+            $isSuccess = $file->isValid();
         } else {
             echo "Not upload yet";
         }
