@@ -58,3 +58,6 @@ Route::group(['prefix'=>'Group1'], function(){
 
 // call a controller
 Route::get('routeName','MyController@testAction');
+
+// send params to Controller
+Route::get('sendThisParam/{sendingParam}', 'MyController@testParams');
