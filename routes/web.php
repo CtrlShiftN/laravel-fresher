@@ -55,3 +55,6 @@ Route::group(['prefix'=>'Group1'], function(){
 		return "R2";
 	});
 });
+
+// call a controller
+Route::get('routeName','MyController@testAction');
