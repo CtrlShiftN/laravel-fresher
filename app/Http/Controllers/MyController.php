@@ -88,8 +88,15 @@ class MyController extends Controller
     }
 
     // return json
-    public function getJson(){
+    public function getJson()
+    {
         $array = ['Laravel', 'PHP', 'HTML'];
         return response()->json($array);
+    }
+
+    // send param to view
+    public function time($t)
+    {
+        return view('myView', ['t' => $t]);
     }
 }

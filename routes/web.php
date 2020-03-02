@@ -86,7 +86,12 @@ Route::get('uploadFile', function () {
     return view('postFile');
 });
 
-Route::post('postFile', ['as'=>'postFile', 'uses'=>'MyController@postFile']);
+Route::post('postFile', ['as' => 'postFile', 'uses' => 'MyController@postFile']);
 
 // return json
 Route::get('getJson', 'MyController@getJson');
+
+// send param to view
+Route::get('time/{t}', 'MyController@time');
+// share param to other views, check at view/myView
+View::share('paramName', 'This is a param');
