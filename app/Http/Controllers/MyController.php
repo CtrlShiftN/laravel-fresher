@@ -60,6 +60,7 @@ class MyController extends Controller
         return $request->cookie('name');
     }
 
+    // upload file
     public function postFile(Request $request)
     {
         // check if file is exist
@@ -84,5 +85,11 @@ class MyController extends Controller
         } else {
             echo "Not upload yet";
         }
+    }
+
+    // return json
+    public function getJson(){
+        $array = ['Laravel', 'PHP', 'HTML'];
+        return response()->json($array);
     }
 }
