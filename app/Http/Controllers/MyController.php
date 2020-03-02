@@ -59,4 +59,18 @@ class MyController extends Controller
     {
         return $request->cookie('name');
     }
+
+    public function postFile(Request $request)
+    {
+        // check if file is exist
+        if ($request->hasFile('filename')) {
+            // save file
+            $file = $request->file('filename')->move(
+                'img', // directory to save file (in the public folder)
+                'my file.jpg' // new name
+            );
+        } else {
+            echo "Not upload yet";
+        }
+    }
 }
