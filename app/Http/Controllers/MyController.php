@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Request;
 
 class MyController extends Controller
 {
@@ -24,5 +23,10 @@ class MyController extends Controller
 		// return $request->url(); // return the specific url
 		// return $request->is('admin/*'); // return true if url contains 'admin/'
 		// return $request->isMethod('post'); // return true if method is POST
+	}
+
+	// get data sent from view postForm.blade.php
+	public function postForm(Request $request){
+		echo $request->fname;
 	}
 }

@@ -64,3 +64,13 @@ Route::get('sendThisParam/{sendingParam}', 'MyController@testParams');
 
 // working with URL
 Route::get('myRequest','MyController@getURL');
+
+// send params with request url to view postForm
+Route::get('getForm', function(){
+	return view('postForm');
+});
+
+// get params from request url above
+// naming 'as'=>'postForm' make users able to call in view 'postForm.blade.php'
+// 'uses'=>'MyController@postForm' send data to the controller function
+Route::post('postForm',['as'=>'postForm', 'uses'=>'MyController@postForm']);
